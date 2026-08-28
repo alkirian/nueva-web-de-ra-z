@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>De Raíz Floricultura — Vivero en Las Piedras, Canelones</title>
+  <meta name="description" content="Plantas, macetas y todo para cuidarlas. Comprá online y retirá en el vivero o recibí en tu casa. Las Piedras, Canelones.">
+  <meta name="theme-color" content="#333D29">
+  <meta property="og:title" content="De Raíz Floricultura">
+  <meta property="og:description" content="Un poquito de verde cambia todo. Plantas, macetas y cuidados en Las Piedras, Canelones.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="home">
+
+<main>
+
+  <!-- ═══════════ 1 · PORTADA ═══════════ -->
+  <section class="hero">
+    <img class="hero__foto" src="assets/img/hero.jpg" alt="" onerror="this.remove()">
+    <div class="hero__velo"></div>
+    <div class="hero__deco" aria-hidden="true">
+      <svg class="deco-a" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M30 190 C60 140 90 100 170 20"/>
+        <path d="M85 110 C70 90 72 70 88 58 C98 76 98 96 85 110Z"/>
+        <path d="M120 75 C110 55 114 38 130 28 C138 46 135 64 120 75Z"/>
+        <path d="M60 150 C45 132 46 112 60 100 C72 118 72 138 60 150Z"/>
+        <path d="M105 95 C125 88 142 92 150 106 C132 114 114 110 105 95Z"/>
+        <path d="M75 130 C95 124 110 128 118 140 C102 148 85 144 75 130Z"/>
+      </svg>
+      <svg class="deco-b" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M30 190 C60 140 90 100 170 20"/>
+        <path d="M85 110 C70 90 72 70 88 58 C98 76 98 96 85 110Z"/>
+        <path d="M120 75 C110 55 114 38 130 28 C138 46 135 64 120 75Z"/>
+        <path d="M60 150 C45 132 46 112 60 100 C72 118 72 138 60 150Z"/>
+        <path d="M105 95 C125 88 142 92 150 106 C132 114 114 110 105 95Z"/>
+        <path d="M75 130 C95 124 110 128 118 140 C102 148 85 144 75 130Z"/>
+      </svg>
+    </div>
+
+    <a class="logo logo--hero" href="index.html" aria-label="De Raíz Floricultura">
+      <svg class="sprig" viewBox="0 0 64 26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 22 Q32 17 58 6"/>
+        <path d="M17 20.5 Q14.5 13.5 20 9.5 Q23 15.5 17 20.5Z"/>
+        <path d="M30 17.5 Q27.5 10.5 33 6.5 Q36 12.5 30 17.5Z"/>
+        <path d="M44 13 Q41.5 6 47 2 Q50 8 44 13Z"/>
+        <path d="M23 21.5 Q28 25.5 33.5 22.5 Q28.5 18.5 23 21.5Z"/>
+        <path d="M37 17.5 Q42 21.5 47.5 18.5 Q42.5 14.5 37 17.5Z"/>
+      </svg>
+      <span class="logo__nombre">De Raíz</span>
+      <span class="logo__sub">Floricultura</span>
+    </a>
+
+    <div class="hero__abajo">
+      <h1 class="hero__frase">Un poquito de verde cambia todo.</h1>
+      <div class="hero__acciones">
+        <a class="btn btn--crema" href="tienda.html">Ver la tienda</a>
+        <a class="btn btn--borde" href="#visitanos">Visitarnos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 2 · CATEGORÍAS ═══════════ -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="seccion__cabeza">
+        <h2 class="seccion__titulo">Encontrá algo<br>para tu espacio 🌿</h2>
+      </div>
+      <div class="grid-categorias" id="grid-categorias"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 3 · FAVORITOS ═══════════ -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="seccion__cabeza">
+        <h2 class="seccion__titulo">Los favoritos 🌿</h2>
+        <a class="link-mas" href="tienda.html">Ver todos</a>
+      </div>
+      <div class="fila-scroll" id="favoritos-fila"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 4 · ¿QUÉ PLANTA ELEGIR? ═══════════ -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="seccion__cabeza">
+        <div>
+          <h2 class="seccion__titulo">¿No sabés qué<br>planta elegir?</h2>
+          <p class="seccion__sub">Te ayudamos a encontrar la ideal para vos.</p>
+        </div>
+      </div>
+      <div class="lista-opciones">
+        <a class="opcion" href="tienda.html?f=poca-luz">
+          <span class="opcion__icono">🌙</span> Tengo poca luz
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="opcion" href="tienda.html?f=mucho-sol">
+          <span class="opcion__icono">☀️</span> Tengo mucho sol
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="opcion" href="tienda.html?f=facil">
+          <span class="opcion__icono">🌿</span> Quiero una planta fácil
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="opcion" href="tienda.html?f=con-flores">
+          <span class="opcion__icono">🌺</span> Quiero una planta con flores
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 5 · MACETAS ═══════════ -->
+  <section class="seccion">
+    <div class="contenedor dos-columnas">
+      <div>
+        <div class="seccion__cabeza">
+          <div>
+            <h2 class="seccion__titulo">Encontrá la<br>maceta perfecta 🤎</h2>
+            <p class="seccion__sub">Dale a tus plantas el hogar que se merecen.</p>
+          </div>
+        </div>
+        <div class="lista-opciones">
+          <a class="opcion" href="tienda.html?cat=macetas&mat=ceramica">Cerámica
+            <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="opcion" href="tienda.html?cat=macetas&mat=barro">Barro
+            <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="opcion" href="tienda.html?cat=macetas&mat=plastico">Plástico
+            <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="opcion" href="tienda.html?cat=macetas&mat=decorativas">Decorativas
+            <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+          </a>
+        </div>
+        <p style="margin-top:16px"><a class="btn btn--verde" href="tienda.html?cat=macetas">Ver todas</a></p>
+      </div>
+      <div class="dos-columnas__media">
+        <div class="bloque-media bloque-media--alto" id="media-macetas"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 6 · CONSEJOS DE CUIDADO ═══════════ -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="seccion__cabeza">
+        <div>
+          <h2 class="seccion__titulo">¿Tu planta está triste? 🌿</h2>
+          <p class="seccion__sub">Consejos, cuidados y todo lo que necesitan para crecer sanas.</p>
+        </div>
+      </div>
+      <p style="margin-bottom:16px"><a class="btn btn--verde" href="consejos.html">Ver consejos</a></p>
+      <div class="lista-opciones">
+        <a class="opcion" href="consejos.html#hojas-amarillas">
+          <span class="opcion__icono">🍂</span> Hojas amarillas
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="opcion" href="consejos.html#riego">
+          <span class="opcion__icono">💧</span> ¿Cada cuánto regar?
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="opcion" href="consejos.html#luz">
+          <span class="opcion__icono">☀️</span> Luz para interior
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="opcion" href="consejos.html#plagas">
+          <span class="opcion__icono">🐛</span> Plagas comunes
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="opcion" href="consejos.html#sustrato">
+          <span class="opcion__icono">🪴</span> Cómo elegir sustrato
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 7 · FORMAS DE COMPRA ═══════════ -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="seccion__cabeza">
+        <h2 class="seccion__titulo">¿Cómo querés<br>recibir tu pedido?</h2>
+      </div>
+      <div class="info-cards">
+        <div class="info-card">
+          <span class="info-card__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5"/><path d="M6 9v10.5h12V9"/><path d="M10 19.5v-5h4v5"/></svg></span>
+          <h3>Retirá en el vivero</h3>
+          <p>Comprá online y retirá tu pedido cuando quieras, sin costo.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.5 12 3.8l8.5 3.7v9L12 20.2l-8.5-3.7v-9Z"/><path d="M3.5 7.5 12 11.2l8.5-3.7M12 11.2v9"/></svg></span>
+          <h3>Recibí en tu casa</h3>
+          <p>Envíos a Las Piedras y zonas cercanas. Coordinamos juntos el mejor momento.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.8A2.3 2.3 0 0 1 6.8 4.5h10.4a2.3 2.3 0 0 1 2.3 2.3v7.4a2.3 2.3 0 0 1-2.3 2.3H9l-4.5 3.7V6.8Z"/></svg></span>
+          <h3>¿Tenés dudas?</h3>
+          <p>Escribinos por WhatsApp, estamos para ayudarte.</p>
+          <button class="btn btn--borde-verde js-wa" data-mensaje="¡Hola De Raíz! 🌿 Tengo una consulta.">Escribinos</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 8 · SOBRE DE RAÍZ ═══════════ -->
+  <section class="seccion" id="vivero">
+    <div class="contenedor dos-columnas">
+      <div class="dos-columnas__media">
+        <div class="bloque-media bloque-media--alto" id="media-sobre"></div>
+      </div>
+      <div class="sobre__texto">
+        <h2 class="seccion__titulo">Somos De Raíz 🌿</h2>
+        <p>Amamos las plantas y creemos en los espacios llenos de vida. Te acompañamos a elegir, cuidar y disfrutar de tus plantas.</p>
+        <p>Detrás de cada planta hay tiempo, cariño y mucha tierra en las manos. Cuando comprás en De Raíz, te llevás un pedacito de nuestro vivero.</p>
+        <p class="sobre__firma">Gracias por ser parte de esta comunidad que crece día a día.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 9 · UBICACIÓN Y HORARIOS ═══════════ -->
+  <section class="seccion" id="visitanos">
+    <div class="contenedor dos-columnas dos-columnas--invertido">
+      <div>
+        <div class="seccion__cabeza">
+          <h2 class="seccion__titulo">Vení a visitarnos 🤎</h2>
+        </div>
+        <div class="visita__datos">
+          <div class="visita__dato">
+            <span class="info-card__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.4-6.5-10.2A6.5 6.5 0 0 1 12 4.5a6.5 6.5 0 0 1 6.5 6.3C18.5 15.6 12 21 12 21Z"/><circle cx="12" cy="10.7" r="2.3"/></svg></span>
+            <span data-config="direccion">Las Piedras, Canelones</span>
+          </div>
+          <div class="visita__dato">
+            <span class="info-card__icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2.2"/></svg></span>
+            <span data-config="horarios">Lunes a sábados de 9 a 18 hs</span>
+          </div>
+        </div>
+        <a class="btn btn--verde" id="btn-como-llegar" href="#" target="_blank" rel="noopener">Cómo llegar</a>
+      </div>
+      <div class="dos-columnas__media visita__mapa">
+        <iframe class="mapa" id="mapa-iframe" title="Mapa para llegar a De Raíz Floricultura" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 10 · REDES Y CONTACTO ═══════════ -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="seccion__cabeza">
+        <div>
+          <h2 class="seccion__titulo">Seguinos en redes 🌿</h2>
+          <p class="seccion__sub">Novedades, plantas nuevas y consejos, todas las semanas.</p>
+        </div>
+      </div>
+      <div class="redes-botones">
+        <a class="btn btn--borde-verde" id="btn-instagram" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".9" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+        <button class="btn btn--borde-verde js-wa" data-mensaje="¡Hola De Raíz! 🌿 Les escribo desde la web.">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Zm0 1.7a7.3 7.3 0 1 1-3.9 13.5l-.4-.2-2.6.7.7-2.5-.3-.4A7.3 7.3 0 0 1 12 4.7Zm-2.9 3.6c-.2 0-.4 0-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.2 1.6 2.6 4 3.5 2 .8 2.4.6 2.8.6.4 0 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.2-.2-.5-.3l-1.7-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6 6 0 0 1-1.8-1.1 6.6 6.6 0 0 1-1.2-1.5c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5L9.7 8.6c-.2-.3-.3-.3-.6-.3Z"/></svg>
+          WhatsApp
+        </button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

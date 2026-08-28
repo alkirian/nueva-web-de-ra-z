@@ -1,0 +1,24 @@
+📷 LAS FOTOS DE LA WEB
+================================
+
+YA HAY 6 FOTOS DE AMBIENTE PUESTAS (provisorias, generadas con IA):
+  hero.jpg          → portada
+  sobre.jpg         → "Somos De Raíz"
+  macetas.jpg       → sección de macetas
+  cat-plantas.jpg   → categoría Plantas
+  cat-macetas.jpg   → categoría Macetas
+  cat-regalos.jpg   → categoría Regalos
+
+Para reemplazar cualquiera por una foto real del vivero: guardala acá con
+el MISMO nombre, pisando la que está. Se actualiza sola.
+
+FALTA (opcional):
+  cat-cuidados.jpg  → categoría Cuidados (ahora muestra un dibujo)
+
+FOTOS DE PRODUCTOS (carpeta productos/):
+Hoy los productos muestran dibujos botánicos. Si querés ponerle foto a uno,
+guardala en productos/ con el "id" del producto + .jpg
+(los id están en assets/js/products.js). Por ejemplo:
+  anthurium.jpg, espatifilo.jpg, potus.jpg, maceta-barro.jpg...
+
+Recomendación: fotos cuadradas, buena luz natural, menos de 500 KB.

@@ -1,0 +1,3 @@
+Acá van las fotos de los productos (cuadradas, .jpg).
+El nombre de cada archivo es el "id" del producto en assets/js/products.js.
+Ejemplo: anthurium.jpg, espatifilo.jpg, maceta-barro.jpg...
