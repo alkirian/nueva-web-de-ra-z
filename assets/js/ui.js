@@ -32,6 +32,8 @@ window.DR = window.DR || {};
     check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
     hojita: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5C11 5 5.5 10 5.5 19c9 0 13.5-5.5 13.5-14Z"/><path d="M5.5 19C9 13.5 13 9.5 19 5"/></svg>',
     bicho: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="13.5" r="5.5"/><path d="M12 8V5.5M9.5 8.6 7.8 6.4M14.5 8.6l1.7-2.2M6.5 13.5H4M20 13.5h-2.5M7.5 17.5l-2 1.8M16.5 17.5l2 1.8M12 10.5V19"/></svg>',
+    solTema: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M18.5 5.5l-1.7 1.7M7.2 16.8l-1.7 1.7"/></svg>',
+    lunaTema: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg>',
     sobre: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4.5 7 7.5 6 7.5-6"/></svg>',
   };
   DR.icono = (nombre) => I[nombre] || '';
@@ -169,9 +171,11 @@ window.DR = window.DR || {};
       '<div class="topbar__in">' +
       '<button class="topbar__btn js-abrir-menu" aria-label="Abrir menú">' + I.menu + '</button>' +
       logoHTML('logo--topbar') +
+      '<div class="topbar__acciones">' +
+      '<button class="topbar__btn js-tema" aria-label="Cambiar entre modo claro y oscuro" title="Cambiar de tema"></button>' +
       '<a class="topbar__btn topbar__carrito" href="carrito.html" aria-label="Ver carrito">' +
       I.bolsa + '<span class="carrito-badge js-badge" hidden>0</span></a>' +
-      '</div></header>'
+      '</div></div></header>'
     );
   }
 
@@ -230,6 +234,57 @@ window.DR = window.DR || {};
     );
   }
 
+  /* ─────────────────────────── TEMA CLARO / OSCURO ─────────────────────────── */
+
+  const CLAVE_TEMA = 'dr_tema';
+
+  /* Aplica el tema y actualiza el botón. 'claro' | 'oscuro' */
+  function aplicarTema(tema) {
+    document.documentElement.setAttribute('data-tema', tema);
+
+    /* el color de la barra del navegador del celular acompaña al tema */
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', tema === 'oscuro' ? '#1F2619' : '#F3EEE2');
+
+    /* en modo claro se ofrece pasar a oscuro (luna), y al revés */
+    document.querySelectorAll('.js-tema').forEach((b) => {
+      b.innerHTML = tema === 'oscuro' ? I.solTema : I.lunaTema;
+      b.setAttribute('aria-label', tema === 'oscuro' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+      b.setAttribute('title', tema === 'oscuro' ? 'Modo claro' : 'Modo oscuro');
+    });
+  }
+
+  /* Tema elegido antes, o el que use el celular/compu del visitante */
+  DR.temaActual = () => {
+    let guardado = null;
+    try { guardado = localStorage.getItem(CLAVE_TEMA); } catch (e) {}
+    if (guardado === 'claro' || guardado === 'oscuro') return guardado;
+    const prefiereOscuro = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return prefiereOscuro ? 'oscuro' : 'claro';
+  };
+
+  DR.cambiarTema = () => {
+    const nuevo = document.documentElement.getAttribute('data-tema') === 'oscuro' ? 'claro' : 'oscuro';
+    try { localStorage.setItem(CLAVE_TEMA, nuevo); } catch (e) {}
+    aplicarTema(nuevo);
+  };
+
+  DR.iniciarTema = () => {
+    aplicarTema(DR.temaActual());
+
+    /* si el visitante no eligió, seguimos al sistema cuando cambie */
+    if (window.matchMedia) {
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      const alCambiar = (e) => {
+        let guardado = null;
+        try { guardado = localStorage.getItem(CLAVE_TEMA); } catch (err) {}
+        if (!guardado) aplicarTema(e.matches ? 'oscuro' : 'claro');
+      };
+      if (mq.addEventListener) mq.addEventListener('change', alCambiar);
+      else if (mq.addListener) mq.addListener(alCambiar);
+    }
+  };
+
   /* ─────────────────────────── TOAST ─────────────────────────── */
 
   let toastTimer = null;
@@ -267,6 +322,9 @@ window.DR = window.DR || {};
     document.body.insertAdjacentHTML('afterbegin', headerHTML());
     document.body.insertAdjacentHTML('beforeend', drawerHTML() + footerHTML());
 
+    /* el botón de tema muestra el icono que corresponde */
+    aplicarTema(document.documentElement.getAttribute('data-tema') || DR.temaActual());
+
     /* textos que salen de config.js (dirección, horarios, etc.) */
     document.querySelectorAll('[data-config]').forEach((el) => {
       const valor = (window.DR_CONFIG || {})[el.dataset.config];
@@ -299,6 +357,12 @@ window.DR = window.DR || {};
       if (wa) {
         e.preventDefault();
         DR.abrirWa(wa.dataset.mensaje || '');
+        return;
+      }
+      const tema = e.target.closest('.js-tema');
+      if (tema) {
+        e.preventDefault();
+        DR.cambiarTema();
       }
     });
 

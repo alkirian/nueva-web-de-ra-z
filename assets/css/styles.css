@@ -3,23 +3,62 @@
    Paleta: crema · verde oliva · madera · tinta cálida
    ============================================================ */
 
+/* ─────────────────────────────────────────────────────────────
+   PALETA — modo claro (el de siempre: crema y verde oliva)
+   El modo oscuro está más abajo, en [data-tema="oscuro"].
+   ───────────────────────────────────────────────────────────── */
+
 :root {
-  --crema: #F3EEE2;
-  --crema-2: #FBF8F1;
+  --crema: #F3EEE2;          /* fondo de la página */
+  --crema-2: #FBF8F1;        /* tarjetas y cajas */
   --blanco: #FFFFFF;
-  --verde: #3E4A32;
-  --verde-osc: #333D29;
+  --verde: #3E4A32;          /* botones y acentos */
+  --verde-osc: #333D29;      /* menú y pie de página */
   --verde-noche: #2A3222;
   --verde-suave: #77815C;
-  --verde-tenue: #E7EAD9;
-  --tinta: #2E2B23;
-  --tinta-2: #7A7466;
-  --linea: #E3DBC9;
-  --arena: #EDE6D2;
+  --verde-tenue: #E7EAD9;    /* redondeles de iconos */
+  --tinta: #2E2B23;          /* texto principal */
+  --tinta-2: #7A7466;        /* texto secundario */
+  --tinta-3: #4A463C;        /* párrafos largos */
+  --linea: #E3DBC9;          /* bordes suaves */
+  --arena: #EDE6D2;          /* chips */
+  --arena-2: #E4DBC2;        /* chips al pasar el mouse */
   --marron: #A67C52;
   --terra: #A15D2C;
   --error: #A34A31;
-  --crema-texto: #F5F2E7;
+  --crema-texto: #F5F2E7;    /* texto sobre fondo verde */
+
+  /* superficies de formularios */
+  --campo-fondo: #FDFBF6;
+  --campo-borde: #D9D0BC;
+  --campo-error: #FBF1EC;
+  --radio-activo: #F3F2E4;
+
+  /* pie de página y menú lateral */
+  --pie-fondo: var(--verde-osc);
+  --pie-texto: #EDE8D8;
+
+  /* chips de stock sobre las fotos */
+  --chip-fondo: rgba(251, 248, 241, 0.92);
+  --chip-pocas-fondo: rgba(246, 232, 213, 0.94);
+  --chip-ok-fondo: var(--verde-tenue);
+  --chip-ok-texto: #4A5A36;
+
+  /* barra superior */
+  --barra-crema: rgba(243, 238, 226, 0.9);
+  --hover-verde: rgba(62, 74, 50, 0.08);
+
+  /* dibujos de las fotos que faltan */
+  --ph-arte: #5D6849;
+  --ph-arte-op: 0.55;
+  --ph-salvia: linear-gradient(160deg, #E9EBDA 0%, #F4F2E5 100%);
+  --ph-arena: linear-gradient(160deg, #EFE6D0 0%, #F8F3E8 100%);
+  --ph-verde: linear-gradient(160deg, #DFE6D1 0%, #F1F1E2 100%);
+  --ph-terra: linear-gradient(160deg, #F0E1D0 0%, #F9F2E9 100%);
+
+  --toast-fondo: var(--tinta);
+  --toast-texto: var(--crema-texto);
+  --velo: rgba(30, 33, 24, 0.45);
 
   --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --sans: 'Karla', 'Segoe UI', system-ui, sans-serif;
@@ -28,6 +67,61 @@
   --radio-g: 22px;
   --sombra: 0 12px 32px rgba(51, 61, 41, 0.10);
   --sombra-s: 0 4px 14px rgba(51, 61, 41, 0.08);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PALETA — modo oscuro (verdes profundos y textos claros)
+   ───────────────────────────────────────────────────────────── */
+
+:root[data-tema="oscuro"] {
+  --crema: #1F2619;          /* fondo de la página */
+  --crema-2: #2A3222;        /* tarjetas y cajas */
+  --blanco: #2A3222;
+  --verde: #8FA36B;          /* botones y acentos, más claros para que resalten */
+  --verde-osc: #161C11;      /* menú y pie de página */
+  --verde-noche: #10150C;
+  --verde-suave: #9DAE7E;
+  --verde-tenue: #37422B;    /* redondeles de iconos */
+  --tinta: #ECE7D8;          /* texto principal */
+  --tinta-2: #A8AC96;        /* texto secundario */
+  --tinta-3: #D3CFC0;        /* párrafos largos */
+  --linea: #3A4430;          /* bordes suaves */
+  --arena: #333D29;          /* chips */
+  --arena-2: #3E4A32;
+  --marron: #C69B6E;
+  --terra: #D2915E;
+  --error: #E08163;
+  --crema-texto: #F5F2E7;
+
+  --campo-fondo: #232B1D;
+  --campo-borde: #414C36;
+  --campo-error: #3A2620;
+  --radio-activo: #333D29;
+
+  --pie-fondo: #161C11;
+  --pie-texto: #DCD8C8;
+
+  --chip-fondo: rgba(31, 38, 25, 0.88);
+  --chip-pocas-fondo: rgba(70, 48, 30, 0.9);
+  --chip-ok-fondo: #37422B;
+  --chip-ok-texto: #B6C795;
+
+  --barra-crema: rgba(31, 38, 25, 0.92);
+  --hover-verde: rgba(236, 231, 216, 0.1);
+
+  --ph-arte: #9DAE7E;
+  --ph-arte-op: 0.4;
+  --ph-salvia: linear-gradient(160deg, #2C3524 0%, #232B1D 100%);
+  --ph-arena: linear-gradient(160deg, #33301F 0%, #262518 100%);
+  --ph-verde: linear-gradient(160deg, #2A3522 0%, #212819 100%);
+  --ph-terra: linear-gradient(160deg, #352A1F 0%, #272018 100%);
+
+  --toast-fondo: #ECE7D8;
+  --toast-texto: #1F2619;
+  --velo: rgba(0, 0, 0, 0.6);
+
+  --sombra: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --sombra-s: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
 /* ─────────── base ─────────── */
@@ -42,6 +136,7 @@ body {
   margin: 0;
   background: var(--crema);
   color: var(--tinta);
+  transition: background-color 0.3s, color 0.3s;
   font-family: var(--sans);
   font-size: 15.5px;
   line-height: 1.55;
@@ -101,7 +196,7 @@ input, select { font: inherit; color: inherit; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: rgba(243, 238, 226, 0.9);
+  background-color: var(--barra-crema);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
@@ -159,7 +254,7 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  color: var(--verde-osc);
+  color: var(--tinta);
 }
 
 .logo--topbar .sprig { width: 28px; }
@@ -175,10 +270,16 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   transition: background 0.2s;
 }
 
-.topbar__btn:hover { background: rgba(62, 74, 50, 0.08); }
+.topbar__btn:hover { background: var(--hover-verde); }
 .topbar__btn svg { width: 22px; height: 22px; }
 
+.topbar__acciones { display: flex; align-items: center; gap: 2px; }
+
 .topbar__carrito { position: relative; }
+
+/* el icono de sol/luna entra con un giro suave */
+.js-tema svg { transition: transform 0.35s ease; }
+.js-tema:hover svg { transform: rotate(-18deg); }
 
 .carrito-badge {
   position: absolute;
@@ -203,7 +304,7 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   position: fixed;
   inset: 0;
   z-index: 80;
-  background: rgba(30, 33, 24, 0.45);
+  background: var(--velo);
 }
 
 .drawer {
@@ -213,7 +314,7 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   left: 0;
   z-index: 90;
   width: min(320px, 86vw);
-  background: var(--verde-osc);
+  background: var(--pie-fondo);
   color: var(--crema-texto);
   padding: 18px 26px 30px;
   transform: translateX(-105%);
@@ -251,7 +352,7 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   display: block;
   padding: 11px 0;
   font-size: 16px;
-  color: #EFEAD9;
+  color: var(--pie-texto);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   transition: padding-left 0.2s, color 0.2s;
 }
@@ -316,7 +417,7 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
 .btn--verde:disabled { background: #B8B2A2; cursor: not-allowed; }
 
 .btn--crema { background: var(--arena); color: var(--tinta); }
-.btn--crema:hover { background: #E4DBC2; }
+.btn--crema:hover { background: var(--arena-2); }
 
 /* Botón principal del hero: verde translúcido sobre la foto */
 .btn--verde-hero {
@@ -351,12 +452,12 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   overflow: hidden;
 }
 
-.ph--salvia { background: linear-gradient(160deg, #E9EBDA 0%, #F4F2E5 100%); }
-.ph--arena  { background: linear-gradient(160deg, #EFE6D0 0%, #F8F3E8 100%); }
-.ph--verde  { background: linear-gradient(160deg, #DFE6D1 0%, #F1F1E2 100%); }
-.ph--terra  { background: linear-gradient(160deg, #F0E1D0 0%, #F9F2E9 100%); }
+.ph--salvia { background: var(--ph-salvia); }
+.ph--arena  { background: var(--ph-arena); }
+.ph--verde  { background: var(--ph-verde); }
+.ph--terra  { background: var(--ph-terra); }
 
-.ph__arte { display: flex; width: 44%; max-width: 130px; color: #5D6849; opacity: 0.55; }
+.ph__arte { display: flex; width: 44%; max-width: 130px; color: var(--ph-arte); opacity: var(--ph-arte-op); }
 .ph__arte svg { width: 100%; height: auto; }
 
 .ph img {
@@ -497,7 +598,7 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   bottom: 11px;
   transform: translateX(-50%);
   z-index: 2;
-  background: rgba(251, 248, 241, 0.92);
+  background: var(--chip-fondo);
   color: var(--tinta);
   padding: 8px 16px;
   border-radius: 999px;
@@ -595,17 +696,17 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: rgba(251, 248, 241, 0.92);
+  background: var(--chip-fondo);
   color: var(--tinta);
 }
 
-.chip-stock--pocas { color: var(--terra); background: rgba(246, 232, 213, 0.94); }
+.chip-stock--pocas { color: var(--terra); background: var(--chip-pocas-fondo); }
 .chip-stock--sin { background: rgba(46, 43, 35, 0.82); color: var(--crema-texto); }
 .chip-stock--ok {
   position: static;
   display: inline-flex;
-  background: var(--verde-tenue);
-  color: #4A5A36;
+  background: var(--chip-ok-fondo);
+  color: var(--chip-ok-texto);
 }
 
 /* ─────────── listas de opciones (elegir planta, macetas, consejos) ─────────── */
@@ -734,8 +835,8 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
 
 .footer {
   margin-top: 56px;
-  background: var(--verde-osc);
-  color: #EDE8D8;
+  background: var(--pie-fondo);
+  color: var(--pie-texto);
   text-align: center;
   padding: 46px 0 30px;
 }
@@ -772,7 +873,7 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   height: 42px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.09);
-  color: #EDE8D8;
+  color: var(--pie-texto);
   transition: background 0.2s;
 }
 
@@ -810,7 +911,7 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   transition: background 0.2s, color 0.2s;
 }
 
-.chip:hover { background: #E4DBC2; }
+.chip:hover { background: var(--arena-2); }
 .chip--activo { background: var(--verde); color: var(--crema-texto); }
 .chip--activo:hover { background: var(--verde-osc); }
 .chip--mini { padding: 7px 14px; font-size: 11.5px; background: transparent; border-color: var(--linea); }
@@ -925,7 +1026,7 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
 
 .detalles-lista svg { width: 18px; height: 18px; color: var(--verde-suave); flex-shrink: 0; }
 
-.prod-detalle__desc { margin: 14px 0 20px; line-height: 1.66; color: #4A463C; }
+.prod-detalle__desc { margin: 14px 0 20px; line-height: 1.66; color: var(--tinta-3); }
 
 .enlace-wa {
   display: inline-flex;
@@ -1089,9 +1190,9 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
 .campo input {
   width: 100%;
   padding: 13px 15px;
-  border: 1px solid #D9D0BC;
+  border: 1px solid var(--campo-borde);
   border-radius: 13px;
-  background: #FDFBF6;
+  background: var(--campo-fondo);
   font-size: 15px;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -1102,22 +1203,22 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   box-shadow: 0 0 0 3px rgba(62, 74, 50, 0.12);
 }
 
-.campo--error input { border-color: var(--error); background: #FBF1EC; }
+.campo--error input { border-color: var(--error); background: var(--campo-error); }
 
 .radio-card {
   display: flex;
   align-items: center;
   gap: 12px;
-  border: 1px solid #D9D0BC;
+  border: 1px solid var(--campo-borde);
   border-radius: 14px;
-  background: #FDFBF6;
+  background: var(--campo-fondo);
   padding: 13px 15px;
   margin: 9px 0;
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s;
 }
 
-.radio-card:has(input:checked) { border-color: var(--verde); background: #F3F2E4; }
+.radio-card:has(input:checked) { border-color: var(--verde); background: var(--radio-activo); }
 
 .radio-card input { accent-color: var(--verde); width: 17px; height: 17px; margin: 0; flex-shrink: 0; }
 
@@ -1187,7 +1288,7 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
 .acordeon[open] .chev { transform: rotate(90deg); }
 
 .acordeon__cuerpo { padding: 0 18px 18px; }
-.acordeon__cuerpo p { font-size: 14.5px; line-height: 1.68; color: #4A463C; margin-top: 10px; }
+.acordeon__cuerpo p { font-size: 14.5px; line-height: 1.68; color: var(--tinta-3); margin-top: 10px; }
 .acordeon__cuerpo p:first-child { margin-top: 0; }
 
 .cta-verde {
@@ -1213,8 +1314,8 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   display: flex;
   align-items: center;
   gap: 14px;
-  background: var(--tinta);
-  color: var(--crema-texto);
+  background: var(--toast-fondo);
+  color: var(--toast-texto);
   padding: 13px 20px;
   border-radius: 999px;
   font-size: 13.5px;
@@ -1278,3 +1379,59 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   *, *::before, *::after { transition: none !important; animation: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Ajustes finos del modo oscuro
+   ───────────────────────────────────────────────────────────── */
+
+/* Las tarjetas necesitan un borde suave para despegarse del fondo */
+:root[data-tema="oscuro"] .prod-card__media,
+:root[data-tema="oscuro"] .cat-card,
+:root[data-tema="oscuro"] .bloque-media,
+:root[data-tema="oscuro"] .prod-detalle__media,
+:root[data-tema="oscuro"] .carro-item__media {
+  border: 1px solid var(--linea);
+}
+
+/* Botón verde: en oscuro el verde es claro, así que el texto va oscuro */
+:root[data-tema="oscuro"] .btn--verde,
+:root[data-tema="oscuro"] .chip--activo,
+:root[data-tema="oscuro"] .prod-card__mas,
+:root[data-tema="oscuro"] .carrito-badge,
+:root[data-tema="oscuro"] .form-seccion__titulo span,
+:root[data-tema="oscuro"] .exito__check {
+  color: #1C2216;
+}
+
+:root[data-tema="oscuro"] .btn--verde:hover,
+:root[data-tema="oscuro"] .chip--activo:hover {
+  background: var(--verde-suave);
+}
+
+:root[data-tema="oscuro"] .btn--verde:disabled { background: #4A5240; color: #9A9788; }
+
+/* El menú lateral y el pie ya son oscuros: mantienen su texto claro */
+:root[data-tema="oscuro"] .drawer__nav a { color: var(--pie-texto); }
+:root[data-tema="oscuro"] .drawer__wa { background: var(--verde); color: #1C2216; }
+
+/* El mapa se integra mejor con menos brillo */
+:root[data-tema="oscuro"] .mapa { filter: grayscale(0.4) brightness(0.82) sepia(0.1); }
+
+/* El texto sobre el verde de la sección de consejos */
+:root[data-tema="oscuro"] .cta-verde { background: var(--verde-tenue); color: var(--tinta); }
+:root[data-tema="oscuro"] .cta-verde .btn--crema { background: var(--verde); color: #1C2216; }
+
+/* El hero siempre es una foto oscura: su texto se mantiene claro */
+:root[data-tema="oscuro"] .hero { color: var(--crema-texto); }
+
+/* En oscuro, los hover de "más oscuro" pasan a ser "más claro" */
+:root[data-tema="oscuro"] .prod-card__mas:hover { background: var(--verde-suave); }
+:root[data-tema="oscuro"] .enlace-wa:hover { color: var(--verde-suave); }
+:root[data-tema="oscuro"] .btn--verde-hero { background: rgba(28, 34, 22, 0.85); color: var(--crema-texto); }
+:root[data-tema="oscuro"] .btn--verde-hero:hover { background: rgba(20, 25, 16, 0.92); }
+:root[data-tema="oscuro"] .btn--crema { background: var(--arena); color: var(--tinta); }
+:root[data-tema="oscuro"] .btn--crema:hover { background: var(--arena-2); }
+:root[data-tema="oscuro"] .btn--borde-verde { border-color: var(--verde); color: var(--verde); }
+:root[data-tema="oscuro"] .btn--borde-verde:hover { background: var(--verde-tenue); color: var(--tinta); }
+:root[data-tema="oscuro"] .link-mas { border-bottom-color: rgba(143, 163, 107, 0.5); }
+:root[data-tema="oscuro"] .toast__accion { color: #6C5A1E; }

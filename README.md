@@ -72,6 +72,18 @@ se muestra el dibujo.
 Consejos: fotos cuadradas para productos, con buena luz natural. Idealmente
 menos de 500 KB cada una (se pueden achicar en [squoosh.app](https://squoosh.app)).
 
+## 🌙 Modo claro y modo oscuro
+
+La web tiene los dos. Arriba a la derecha, al lado del carrito, hay un botón
+con una luna (o un sol) para cambiar:
+
+- **Modo claro**: el beige y verde de siempre.
+- **Modo oscuro**: fondo verde profundo con textos claros, más cómodo de noche.
+
+La primera vez se usa el modo que tenga configurado el celular o la compu del
+cliente. Si lo cambia con el botón, queda guardado en su navegador y se
+respeta en todas las páginas y las próximas visitas.
+
 ## 🛒 Cómo llegan los pedidos
 
 1. El cliente arma el carrito, completa sus datos, elige **retiro o envío**

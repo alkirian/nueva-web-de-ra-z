@@ -423,6 +423,7 @@
   /* ═══════════════════════ ARRANQUE ═══════════════════════ */
 
   document.addEventListener('DOMContentLoaded', () => {
+    DR.iniciarTema();
     DR.uiInit();
     const pagina = document.body.dataset.page;
     if (pagina === 'home') initHome();
