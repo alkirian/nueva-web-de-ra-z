@@ -8,6 +8,20 @@
   /* ═══════════════════════ PORTADA ═══════════════════════ */
 
   function initHome() {
+    /* la barra de arriba se vuelve sólida al bajar de la portada */
+    const barra = document.querySelector('.topbar');
+    if (barra) {
+      const alturaBarra = 66;
+      const marcar = () => {
+        const hero = document.querySelector('.hero');
+        const limite = hero ? hero.offsetHeight - alturaBarra : 0;
+        barra.classList.toggle('topbar--solida', window.scrollY > limite);
+      };
+      window.addEventListener('scroll', marcar, { passive: true });
+      window.addEventListener('resize', marcar);
+      marcar();
+    }
+
     /* categorías */
     const cats = document.getElementById('grid-categorias');
     if (cats) {

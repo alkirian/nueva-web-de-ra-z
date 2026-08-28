@@ -101,11 +101,48 @@ input, select { font: inherit; color: inherit; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(243, 238, 226, 0.9);
+  background-color: rgba(243, 238, 226, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--linea);
+  border-bottom: 1px solid transparent;
+  border-bottom-color: var(--linea);
+  transition: background-color 0.3s, border-color 0.3s;
 }
+
+/* En la portada la barra flota sobre la foto y se vuelve crema al bajar.
+   Se usan variables para que el cambio no dependa del orden de las reglas. */
+body[data-page="home"] .topbar {
+  --barra-fondo: transparent;
+  --barra-borde: transparent;
+  --barra-texto: var(--crema-texto);
+  --barra-sub: rgba(245, 242, 231, 0.8);
+  --barra-hover: rgba(255, 255, 255, 0.14);
+  --barra-blur: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+body[data-page="home"] .topbar.topbar--solida {
+  --barra-fondo: rgba(243, 238, 226, 0.92);
+  --barra-borde: var(--linea);
+  --barra-texto: var(--tinta);
+  --barra-sub: var(--tinta-2);
+  --barra-hover: rgba(62, 74, 50, 0.08);
+  --barra-blur: blur(10px);
+}
+
+body[data-page="home"] .topbar {
+  background-color: var(--barra-fondo);
+  border-bottom-color: var(--barra-borde);
+  color: var(--barra-texto);
+  backdrop-filter: var(--barra-blur);
+  -webkit-backdrop-filter: var(--barra-blur);
+}
+
+body[data-page="home"] .topbar .logo--topbar { color: var(--barra-texto); }
+body[data-page="home"] .topbar .logo__sub { color: var(--barra-sub); }
+body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hover); }
 
 .topbar__in {
   position: relative;
@@ -281,6 +318,17 @@ input, select { font: inherit; color: inherit; }
 .btn--crema { background: var(--arena); color: var(--tinta); }
 .btn--crema:hover { background: #E4DBC2; }
 
+/* Botón principal del hero: verde translúcido sobre la foto */
+.btn--verde-hero {
+  background: rgba(62, 74, 50, 0.88);
+  color: var(--crema-texto);
+  border: 1.5px solid rgba(245, 242, 231, 0.5);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.btn--verde-hero:hover { background: rgba(51, 61, 41, 0.95); }
+
 .btn--borde {
   border: 1.5px solid rgba(245, 242, 231, 0.85);
   color: var(--crema-texto);
@@ -323,10 +371,9 @@ input, select { font: inherit; color: inherit; }
 
 .hero {
   position: relative;
-  margin: 12px;
-  border-radius: 26px;
+  margin: 0;
   overflow: hidden;
-  min-height: calc(100svh - 92px);
+  min-height: 100svh;
   background:
     radial-gradient(130% 90% at 50% 0%, #48563A 0%, var(--verde-osc) 55%, var(--verde-noche) 100%);
   color: var(--crema-texto);
@@ -335,7 +382,7 @@ input, select { font: inherit; color: inherit; }
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  padding: clamp(40px, 8vh, 72px) 26px clamp(34px, 6vh, 56px);
+  padding: calc(66px + clamp(6px, 2vh, 18px)) 26px clamp(38px, 7vh, 64px);
 }
 
 /* la foto y el velo van detrás; `.hero > *` los volvería relativos */
@@ -373,8 +420,8 @@ input, select { font: inherit; color: inherit; }
 .hero > * { position: relative; }
 
 .logo--hero { color: var(--crema-texto); }
-.logo--hero .sprig { width: 52px; }
-.logo--hero .logo__nombre { font-size: clamp(26px, 7vw, 34px); font-weight: 500; margin-top: 8px; }
+.logo--hero .sprig { width: 58px; }
+.logo--hero .logo__nombre { font-size: clamp(29px, 8vw, 38px); font-weight: 500; margin-top: 8px; }
 .logo--hero .logo__sub { font-size: 9.5px; color: rgba(245, 242, 231, 0.75); margin-top: 4px; }
 
 .hero__abajo { display: flex; flex-direction: column; align-items: center; gap: 26px; width: 100%; }
@@ -1189,7 +1236,7 @@ input, select { font: inherit; color: inherit; }
 @media (min-width: 720px) {
   .seccion { padding: 54px 0 8px; }
 
-  .hero { margin: 16px; min-height: 640px; }
+  .hero { min-height: 100svh; }
   .hero__acciones { flex-direction: row; width: auto; }
   .hero__acciones .btn { min-width: 190px; }
 
