@@ -3,8 +3,10 @@
 Web mobile-first del vivero: tienda con carrito, checkout con retiro o envío,
 consejos de cuidado e integración con Instagram y WhatsApp.
 
-**No necesita instalación ni programas**: son archivos estáticos. Para verla,
-hacé doble clic en `index.html`. Para publicarla, ver más abajo.
+**Ya está online en:** <https://alkirian.github.io/nueva-web-de-ra-z/>
+
+No necesita instalación ni programas: son archivos estáticos. Para verla en
+la compu sin internet, doble clic en `index.html`.
 
 ---
 
@@ -24,7 +26,7 @@ hacé doble clic en `index.html`. Para publicarla, ver más abajo.
 
 ---
 
-## ⚙️ 1. Antes de publicar: completar `assets/js/config.js`
+## ⚙️ 1. Lo primero: completar `assets/js/config.js`
 
 Abrí el archivo con el Bloc de notas y completá:
 
@@ -88,32 +90,26 @@ menos de 500 KB cada una (se pueden achicar en [squoosh.app](https://squoosh.app
   - `tienda.html?f=poca-luz` → plantas para poca luz
   - `consejos.html` → los consejos de cuidado
 
-## 🚀 Publicar la web (gratis, con GitHub Pages)
+## 🚀 La web ya está online
 
-Ya está todo preparado. **La primera vez**, hacé clic derecho en
-`publicar-web.ps1` → *Ejecutar con PowerShell*.
-
-El script te va a abrir el navegador para conectar tu cuenta de GitHub
-(una sola vez), después crea el repositorio, sube los archivos y activa
-la web automáticamente.
-
-Al terminar te muestra la dirección, que va a ser algo así:
+**Dirección de la web:**
 
 ```
-https://TU-USUARIO.github.io/deraiz-floricultura/
+https://alkirian.github.io/nueva-web-de-ra-z/
 ```
 
-En 1 o 2 minutos ya se ve online. Esa es la dirección para poner en la
-bio de Instagram.
+Esa es la dirección para poner en la bio de Instagram y compartir por WhatsApp.
 
-### Actualizar la web después
+Repositorio: <https://github.com/alkirian/nueva-web-de-ra-z>
+
+### Actualizar la web
 
 Cada vez que cambies precios, stock, productos o fotos:
 clic derecho en `actualizar-web.ps1` → *Ejecutar con PowerShell*.
 En 1 o 2 minutos los cambios se ven online.
 
 > 💡 Más adelante se puede conectar un dominio propio tipo `deraiz.uy`
-> en la configuración del repositorio, sección *Pages*.
+> desde la configuración del repositorio, sección *Pages*.
 
 ## 🔜 Próximos pasos posibles
 
@@ -121,4 +117,4 @@ En 1 o 2 minutos los cambios se ven online.
   tabla, el stock se descuenta solo y los productos se editan desde una
   planilla online en vez del archivo. Ideal cuando el catálogo crezca.
 - **Pagos online (Mercado Pago)**: cobrar directo desde la web.
-- **Dominio propio** y perfil de Google Maps del vivero.
+- **Dominio propio** (tipo `deraiz.uy`) y perfil de Google Maps del vivero.
