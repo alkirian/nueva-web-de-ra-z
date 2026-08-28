@@ -88,13 +88,32 @@ menos de 500 KB cada una (se pueden achicar en [squoosh.app](https://squoosh.app
   - `tienda.html?f=poca-luz` → plantas para poca luz
   - `consejos.html` → los consejos de cuidado
 
-## 🚀 Publicar la web (gratis, 10 minutos)
+## 🚀 Publicar la web (gratis, con GitHub Pages)
 
-1. Entrá a [app.netlify.com/drop](https://app.netlify.com/drop) (crear cuenta gratis).
-2. Arrastrá la carpeta **completa** del sitio a la página.
-3. Listo: te da una dirección tipo `deraiz.netlify.app` para compartir.
-4. Cada vez que cambies algo, volvés a arrastrar la carpeta.
-   (Más adelante se puede conectar un dominio propio tipo `deraiz.uy`.)
+Ya está todo preparado. **La primera vez**, hacé clic derecho en
+`publicar-web.ps1` → *Ejecutar con PowerShell*.
+
+El script te va a abrir el navegador para conectar tu cuenta de GitHub
+(una sola vez), después crea el repositorio, sube los archivos y activa
+la web automáticamente.
+
+Al terminar te muestra la dirección, que va a ser algo así:
+
+```
+https://TU-USUARIO.github.io/deraiz-floricultura/
+```
+
+En 1 o 2 minutos ya se ve online. Esa es la dirección para poner en la
+bio de Instagram.
+
+### Actualizar la web después
+
+Cada vez que cambies precios, stock, productos o fotos:
+clic derecho en `actualizar-web.ps1` → *Ejecutar con PowerShell*.
+En 1 o 2 minutos los cambios se ven online.
+
+> 💡 Más adelante se puede conectar un dominio propio tipo `deraiz.uy`
+> en la configuración del repositorio, sección *Pages*.
 
 ## 🔜 Próximos pasos posibles
 
