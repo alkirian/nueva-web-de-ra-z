@@ -235,6 +235,19 @@ body[data-page="home"] .topbar {
   -webkit-backdrop-filter: var(--barra-blur);
 }
 
+/* En la portada el logo grande del hero ya dice la marca: el de la barra
+   aparece recién al bajar, cuando el hero sale de pantalla. */
+body[data-page="home"] .topbar .logo--topbar {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+body[data-page="home"] .topbar.topbar--solida .logo--topbar {
+  opacity: 1;
+  visibility: visible;
+}
+
 body[data-page="home"] .topbar .logo--topbar { color: var(--barra-texto); }
 body[data-page="home"] .topbar .logo__sub { color: var(--barra-sub); }
 body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hover); }
@@ -532,7 +545,11 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
   font-weight: 500;
   font-size: clamp(30px, 8.5vw, 44px);
   line-height: 1.18;
-  max-width: 380px;
+  /* sin <br> fijo: el navegador reparte las líneas parejas y el bloque
+     queda equilibrado en cualquier ancho de pantalla */
+  text-wrap: balance;
+  max-width: 16ch;
+  margin-inline: auto;
 }
 
 .hero__acciones {
