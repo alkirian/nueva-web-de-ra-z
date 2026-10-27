@@ -814,6 +814,49 @@ body[data-page="home"] .topbar .topbar__btn:hover { background: var(--barra-hove
 
 .info-card .btn { margin-top: 14px; padding: 11px 22px; font-size: 11px; }
 
+/* ─────────── clínica de plantas ─────────── */
+
+/* Tarjeta destacada: invita a mandar una foto por WhatsApp. */
+.clinica {
+  background: var(--verde-tenue);
+  border: 1px solid var(--linea);
+  border-radius: 22px;
+  padding: 30px 24px;
+  text-align: center;
+}
+
+.clinica__icono {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--crema-2);
+  color: var(--verde);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clinica__icono svg { width: 25px; height: 25px; }
+
+.clinica__titulo {
+  font-family: var(--serif);
+  font-size: clamp(23px, 6vw, 29px);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 14px;
+}
+
+.clinica__texto {
+  font-size: 14.5px;
+  color: var(--tinta-2);
+  line-height: 1.6;
+  margin-top: 10px;
+  margin-inline: auto;
+  max-width: 42ch;
+}
+
+.clinica .btn { margin-top: 20px; }
+
 /* ─────────── sobre el vivero ─────────── */
 
 .sobre__texto { margin-top: 20px; }
