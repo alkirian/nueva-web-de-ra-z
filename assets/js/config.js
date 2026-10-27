@@ -8,9 +8,9 @@
 window.DR_CONFIG = {
   nombre: 'De Raíz Floricultura',
 
-  // ⚠️ COMPLETAR: número de WhatsApp con código de país, sin "+", sin espacios.
-  // Ejemplo Uruguay: '59899123456'
-  whatsapp: '598XXXXXXXX',
+  // Número de WhatsApp con código de país, sin "+", sin espacios.
+  // Es el +598 93 307 699 del vivero.
+  whatsapp: '59893307699',
 
   // ⚠️ CONFIRMAR: usuario de Instagram (sin @)
   instagram: 'deraiz.floricultura',
