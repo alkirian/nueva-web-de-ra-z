@@ -46,9 +46,19 @@ if ($LASTEXITCODE -ne 0 -or -not $token) {
 }
 
 $destino = "https://x-access-token:$token@github.com/alkirian/nueva-web-de-ra-z.git"
-# El 2>&1 junta los mensajes de git; el -replace tapa la clave por si aparece.
-$salida = (& git push $destino main 2>&1) -replace [regex]::Escape($token), '***'
+# Git escribe su progreso en el canal de errores, asi que lo mandamos a un
+# archivo temporal en vez de mezclarlo: si no, PowerShell corta el script
+# creyendo que fallo cuando en realidad subio bien.
+$log = Join-Path $env:TEMP "deraiz-push.txt"
+& git push $destino main 2>$log | Out-Null
 $exito = ($LASTEXITCODE -eq 0)
+
+# Por si git nombro la direccion con la clave adentro, la tapamos antes de mostrarla.
+$salida = ""
+if (Test-Path $log) {
+    $salida = (Get-Content $log -Raw) -replace [regex]::Escape($token), '***'
+    Remove-Item $log -Force
+}
 $token = $null
 $destino = $null
 
