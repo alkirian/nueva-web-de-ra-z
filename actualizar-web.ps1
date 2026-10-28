@@ -46,25 +46,19 @@ if ($LASTEXITCODE -ne 0 -or -not $token) {
 }
 
 $destino = "https://x-access-token:$token@github.com/alkirian/nueva-web-de-ra-z.git"
-# Git escribe su progreso en el canal de errores, asi que lo mandamos a un
-# archivo temporal en vez de mezclarlo: si no, PowerShell corta el script
-# creyendo que fallo cuando en realidad subio bien.
-$log = Join-Path $env:TEMP "deraiz-push.txt"
-& git push $destino main 2>$log | Out-Null
+# Git avisa su progreso por el canal de errores y PowerShell lo toma como una
+# falla real, asi que apagamos ese corte mientras sube y miramos solo el
+# resultado final. Se usa --quiet para que no imprima la direccion con la clave.
+$previo = $ErrorActionPreference
+$ErrorActionPreference = 'Continue'
+& git push --quiet $destino main
 $exito = ($LASTEXITCODE -eq 0)
-
-# Por si git nombro la direccion con la clave adentro, la tapamos antes de mostrarla.
-$salida = ""
-if (Test-Path $log) {
-    $salida = (Get-Content $log -Raw) -replace [regex]::Escape($token), '***'
-    Remove-Item $log -Force
-}
+$ErrorActionPreference = $previo
 $token = $null
 $destino = $null
 
 if (-not $exito) {
-    Write-Host "  No se pudo subir." -ForegroundColor Red
-    Write-Host $salida
+    Write-Host "  No se pudo subir. Fijate que haya internet." -ForegroundColor Red
     Read-Host "  Presiona Enter para cerrar"
     exit 1
 }
